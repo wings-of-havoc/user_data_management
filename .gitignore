@@ -1,0 +1,44 @@
+# Python
+*.pyc
+__pycache__/
+.venv/
+venv/
+env/
+
+# Node.js
+node_modules/
+dist/
+build/
+
+# General
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Google Cloud
+.gcloudignore
+
+# Secrets and Credentials
+*.json.enc
+*.pem
+*.key
+*.cert
+
+# Data Files
+*.csv
+*.jsonl
+*.parquet
+*.avro
+
+# Logs
+*.log
+
+# Operating System Files
+.Spotlight-V100
+.Trashes
+
+# Temporary Files
+*~
+*.swp
+*.tmp
