@@ -1,0 +1,33 @@
+<script>
+  // Check if a userId already exists in localStorage
+  let userId = localStorage.getItem('userId');
+
+  if (!userId) {
+    // Make a GET request to your server's API endpoint
+    fetch('/generate_user_id')  
+      .then(response => {
+        if (!response.ok) {
+          console.error('API request failed:', response.status, response.statusText);
+          return;
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data && data.userId) {
+          userId = data.userId;
+          localStorage.setItem('userId', userId);
+
+          // Push the userId to the dataLayer
+          dataLayer.push({
+            'event': 'user_id_generated', // Optional: Use a custom event
+            'userId': userId
+          });
+        } else {
+          console.error('Invalid response from server:', data);
+        }
+      })
+      .catch(error => {
+        console.error('API request error:', error);
+      });
+  }
+</script>
