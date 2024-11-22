@@ -1,0 +1,4 @@
+flask
+google-cloud-sqlcommenter
+mysql-connector-python
+uuid
