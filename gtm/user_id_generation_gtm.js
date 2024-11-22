@@ -13,14 +13,14 @@
         return response.json();
       })
       .then(data => {
-        if (data && data.userId) {
-          userId = data.userId;
-          localStorage.setItem('userId', userId);
+        if (data && data.user_id) {
+          userId = data.user_id;
+          localStorage.setItem('user_id', user_id);
 
           // Push the userId to the dataLayer
           dataLayer.push({
             'event': 'user_id_generated', // Optional: Use a custom event
-            'userId': userId
+            'user_id': user_id
           });
         } else {
           console.error('Invalid response from server:', data);
