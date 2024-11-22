@@ -1,8 +1,8 @@
 <script>
   // Check if a userId already exists in localStorage
-  let userId = localStorage.getItem('userId');
+  let userId = localStorage.getItem('user_id');
 
-  if (!userId) {
+  if (!user_id) {
     // Make a GET request to your server's API endpoint
     fetch('/generate_user_id')  
       .then(response => {
@@ -14,7 +14,7 @@
       })
       .then(data => {
         if (data && data.user_id) {
-          userId = data.user_id;
+          user_id = data.user_id;
           localStorage.setItem('user_id', user_id);
 
           // Push the userId to the dataLayer
