@@ -1,4 +1,5 @@
 import uuid
+import hashlib
 from flask import Flask, request, jsonify
 from google.cloud import sqlcommenter
 
