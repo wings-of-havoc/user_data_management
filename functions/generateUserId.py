@@ -17,7 +17,7 @@ def generate_user_id():
         with conn.cursor() as cursor:
             cursor.execute(
                 "INSERT INTO user_data (hashed_ip, user_id) VALUES (%s, %s)",
-                (ip_address, user_id),
+                (hashed_ip, user_id),
             )
         conn.commit()
 
