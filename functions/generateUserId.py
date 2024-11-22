@@ -9,11 +9,14 @@ def generate_user_id():
     ip_address = request.remote_addr
     user_id = str(uuid.uuid4())
 
+    #hash ip for security
+    hashed_ip = hashlib.sha256(ip_address.encode()).hexdigest()
+
     # Store in Cloud SQL (example)
     with db.connect() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
-                "INSERT INTO user_data (ip_address, user_id) VALUES (%s, %s)",
+                "INSERT INTO user_data (hashed_ip, user_id) VALUES (%s, %s)",
                 (ip_address, user_id),
             )
         conn.commit()
