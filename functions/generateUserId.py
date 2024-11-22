@@ -19,6 +19,6 @@ def generate_user_id():
         conn.commit()
 
     # Return the generated user ID in the response
-    return jsonify({'userId': user_id}), 200  
+    return jsonify({'user_id': user_id}), 200  
 
 # ... (rest of your server-side code) ...
