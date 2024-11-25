@@ -1,29 +1,24 @@
-name: Deploy to Cloud Functions
-
+name: Deploy Cloud Function
 on:
   push:
     branches:
-      - main  # Trigger on pushes to the main branch
-
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3  # Checks out your code
-
-      - name: Set up gcloud CLI
-        uses: google-github-actions/setup-gcloud@v0
-        with:
-          project_id: ${{ secrets.PROJECT_ID }}   # Replace with your project ID
-          service_account_key: ${{ secrets.GCP_SA_KEY }}  # See step 3
-
-      - name: Deploy to Cloud Functions
-        run: |
-          gcloud functions deploy generate-user-id \
-            --runtime python39 \
-            --trigger-http \
-            --region us-central1 \  
-            --source functions \
-            --entry-point generate_user_id \
-            --allow-unauthenticated \
-            --concurrency 100  
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Authenticate with Google Cloud
+      uses: google-github-actions/auth@v0.4.0
+      with:
+        credentials: ${{ secrets.GCP_SA_KEY }}
+        scopes: cloud-platform
+    - name: Deploy Cloud Function
+      uses: google-github-actions/deploy-cloud-functions@v0.1.0
+      with:
+        name: generate-user-id
+        runtime: python39
+        project: ${{ secrets.PROJECT_ID }}
+        source: functions/
+        entry-point: generate_user_id 
