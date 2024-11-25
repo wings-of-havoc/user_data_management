@@ -14,7 +14,7 @@ jobs:
       - name: Set up gcloud CLI
         uses: google-github-actions/setup-gcloud@v0
         with:
-          project_id: your-project-id  # Replace with your project ID
+          project_id: ${{ secrets.PROJECT_ID }}   # Replace with your project ID
           service_account_key: ${{ secrets.GCP_SA_KEY }}  # See step 3
 
       - name: Deploy to Cloud Functions
@@ -23,7 +23,7 @@ jobs:
             --runtime python39 \
             --trigger-http \
             --region us-central1 \  
-            --source server/functions \
+            --source functions \
             --entry-point generate_user_id \
             --allow-unauthenticated \
             --concurrency 100  
