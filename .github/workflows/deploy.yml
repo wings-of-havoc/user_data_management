@@ -28,6 +28,6 @@ jobs:
       with:
         name: generate-user-id
         runtime: python39
-        project: ${{ secrets.PROJECT_ID }}
+        project: ${{ env.PROJECT_ID }}
         source: functions/
         entry-point: generate_user_id 
