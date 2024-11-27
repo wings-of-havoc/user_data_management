@@ -22,7 +22,7 @@ jobs:
     - name: Set up Cloud SDK
       uses: google-github-actions/setup-gcloud@v1
       with:
-        project_id: ${{ env.GCLOUD_PROJECT }}
+        project_id: ${{ steps.auth.outputs.project_id }}
     - name: Deploy Cloud Function
       uses: google-github-actions/deploy-cloud-functions@v0.1.0
       with:
