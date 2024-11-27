@@ -28,6 +28,7 @@ jobs:
       with:
         name: generate-user-id
         runtime: python39
+        project_id: ${{ steps.auth.outputs.project_id }}
         project: ${{ env.PROJECT_ID }}
         source: functions/
         entry-point: generate_user_id 
