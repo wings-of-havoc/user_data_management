@@ -1,4 +1,4 @@
-name: Deploy Cloud Function
+cname: Deploy Cloud Function
 on:
   push:
     branches:
@@ -17,7 +17,7 @@ jobs:
       uses: google-github-actions/auth@v2
       with:
         workload_identity_provider: ${{ secrets.WIP_PROVIDER }}
-        audience: ${{ WIP_CONFIG_AUDIENCE }}
+        audience: ${{ secrets.WIP_CONFIG_AUDIENCE }}
         
         
     - name: Deploy Cloud Function
