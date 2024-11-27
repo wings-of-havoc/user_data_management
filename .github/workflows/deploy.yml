@@ -1,4 +1,4 @@
-cname: Deploy Cloud Function
+name: Deploy Cloud Function
 on:
   push:
     branches:
