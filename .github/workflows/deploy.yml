@@ -19,6 +19,10 @@ jobs:
         workload_identity_provider: ${{ secrets.WIP_PROVIDER }}
         service-account: ${{ secrets.GCP_SA_EMAIL }}
         scopes: cloud-platform
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@v0
+      with:
+        project_id: ${{ env.GCLOUD_PROJECT }}
     - name: Deploy Cloud Function
       uses: google-github-actions/deploy-cloud-functions@v0.1.0
       with:
