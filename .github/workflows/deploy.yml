@@ -16,7 +16,7 @@ jobs:
       id: 'auth'
       uses: google-github-actions/auth@v2
       with:
-        credentials_json: ${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}
+        workload_identity_provider: ${{ secrets.WIP_PROVIDER }}
         
         
     - name: Deploy Cloud Function
