@@ -16,7 +16,7 @@ jobs:
         workload_identity_provider: ${{ secrets.WIP_PROVIDER }}
         scopes: cloud-platform
     - name: Deploy Cloud Function
-      uses: google-github-actions/deploy-cloud-functions@v0.1.
+      uses: google-github-actions/deploy-cloud-functions@v0.1.0
       with:
         name: generate-user-id
         runtime: python39
