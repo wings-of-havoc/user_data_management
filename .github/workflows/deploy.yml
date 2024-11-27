@@ -18,6 +18,7 @@ jobs:
       with:
        project_id: ${{ secrets.PROJECT_ID }}
        workload_identity_provider: ${{ secrets.WIP_PROVIDER }}
+       audienct: ${{ secrets.WIP_CONFIG_AUDIENCE }}
        scopes: cloud-platform        
         
     - name: Deploy Cloud Function
