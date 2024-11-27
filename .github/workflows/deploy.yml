@@ -16,9 +16,7 @@ jobs:
       id: 'auth'
       uses: google-github-actions/auth@v2
       with:
-        workload_identity_provider: ${{ secrets.WIP_PROVIDER }}
-        audience: ${{ secrets.WIP_CONFIG_AUDIENCE }}
-        
+        workload_identity_provider: ${{ secrets.WIP_PROVIDER }}        
         
     - name: Deploy Cloud Function
       uses: google-github-actions/deploy-cloud-functions@v0.1.0
