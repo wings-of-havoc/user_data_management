@@ -20,9 +20,6 @@ jobs:
         workload_identity_provider: ${{ secrets.WIP_PROVIDER }}
         service-account: ${{ secrets.GCP_SA_EMAIL }}
         scopes: cloud-platform
-        
-    - name: Debut Auth Output
-      run: echo ${{ steps.auth.outputs.project_id }}
       
     - name: Set up Cloud SDK
       uses: google-github-actions/setup-gcloud@v1
@@ -34,6 +31,6 @@ jobs:
       with:
         name: generate-user-id
         runtime: python39
-        project: ${{ env.GCLOUD_PROJECT }}
+        project_id: ${{ steps.auth.outputs.project_id }}
         source: functions/
         entry-point: generate_user_id 
