@@ -34,6 +34,6 @@ jobs:
       with:
         name: generate-user-id
         runtime: python39
-        project: ${{ env.PROJECT_ID }}
+        project: ${{ env.GCLOUD_PROJECT }}
         source: functions/
         entry-point: generate_user_id 
